@@ -1,0 +1,57 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.accueil{
+  margin: 0;
+  background-image: url(../image/backgroundmario.jpg);
+  height: 640px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+.choixperso{
+  display: flex;
+  flex-direction: row;
+}
+.perso1{
+  height: 600px;
+  background-image: url(../image/perso1.jpg);
+  background-size: cover;
+}
+.perso2{
+  height: 600px;
+  background-image: url(../image/perso2.jpg);
+    background-size: cover;
+}
+.choix1{
+  height: 600px;
+  width: 50%;
+}
+.choix2{
+  height: 600px;
+  width: 50%;
+}
+
+.monde{
+  height: 644px;
+  width: 100%;
+  background-image: url(../image/mapMario.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.persoJoueur{
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  top: 500px;
+  left: 350px;
+  position: absolute;
+}
