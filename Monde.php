@@ -9,7 +9,12 @@
   <body>
 <div class="monde">
 <div class="persoJoueur">
-
+</div>
+<div class="monde1">
+</div>
+<div class="monde2">
+</div>
+<div class="monde3">
 </div>
 </div>
 <script src="js/script.js">
