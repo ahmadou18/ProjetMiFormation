@@ -28,18 +28,19 @@ else {
     $('.persoJoueur').css({'background-image' : 'url(image/luigirun2.gif)', 'height' : '80px', 'width' : '60px'})
 }
 
-$(document).keyup(function(e){
-if (e.keyCode == 39) {
-  
+$(document).keydown(function(e){
+if (e.keyCode === 39) {
+  $('.persoJoueur').finish().animate({ "left": "+=10"});
+$('.persoJoueur').css({"transform" : "scaleX(1)"});
 }
-else if(e.keyCode == 37){
-
+else if(e.keyCode === 37){
+$('.persoJoueur').finish().animate({ "left": "-=10"});
+$('.persoJoueur').css({"transform" : "scaleX(-1)"});
 }
-else if(e.keyCode == 38){
-
+else if(e.keyCode === 38){
+$('.persoJoueur').finish().animate({ "top": "-=10"});
 }
-else if(e.keyCode == 40){
-
+else if(e.keyCode === 40){
+$('.persoJoueur').finish().animate({ "top": "+=10"});
 }
-
 });
