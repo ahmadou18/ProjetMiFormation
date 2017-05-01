@@ -1,3 +1,13 @@
+<?php
+try{
+  // connexion base de donnée
+  $bdd = new PDO('mysql:host=localhost;dbname=mario;charset=utf8','phpmyadmin','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+  die('Erreur : '.$e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,6 +18,12 @@
   </head>
   <body>
 <div class="monde">
+  <p>
+  <?php
+  session_start();
+  echo "Bienvenue ".$_SESSION['pseudo']." !";
+  ?>
+    </p>
 <div class="persoJoueur">
 </div>
 <div class="monde1">
@@ -21,4 +37,5 @@
 
 </script>
   </body>
+
 </html>

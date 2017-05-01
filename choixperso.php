@@ -1,3 +1,17 @@
+<?php
+try{
+  // connexion base de donnée
+  $bdd = new PDO('mysql:host=localhost;dbname=mario;charset=utf8','phpmyadmin','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+  die('Erreur : '.$e->getMessage());
+}
+$pseudo = $_POST['pseudo'];
+
+session_start();
+$_SESSION['pseudo'] = $_POST['pseudo'];
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,4 +37,10 @@
 
   </script>
 </body>
+<?php
+
+$req = $bdd->prepare('INSERT INTO marioUser(pseudoUser) VALUES(:pseudo)');
+$req->execute(array(
+  'pseudo' => $pseudo));
+  ?>
 </html>

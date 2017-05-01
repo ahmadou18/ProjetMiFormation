@@ -46,6 +46,11 @@ body{
   background-repeat: no-repeat;
   position: relative;
 }
+.monde p{
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
 
 .persoJoueur{
   height: 40px;
