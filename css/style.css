@@ -46,6 +46,10 @@ body{
   background-repeat: no-repeat;
   position: relative;
 }
+.monde a{
+  float: right;
+
+}
 .monde p{
   text-align: center;
   font-size: 30px;

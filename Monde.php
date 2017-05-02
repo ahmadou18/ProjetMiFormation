@@ -24,6 +24,7 @@ catch(Exception $e)
   echo "Bienvenue ".$_SESSION['pseudo']." !";
   ?>
     </p>
+    <a href="update.php">Changer son pseudo</a>
 <div class="persoJoueur">
 </div>
 <div class="monde1">

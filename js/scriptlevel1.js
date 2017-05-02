@@ -27,6 +27,7 @@ function create() {
 
   game.world.setBounds(0, 0, 9000, 650);
   player = game.add.sprite(32, game.world.height - 400, 'mario');
+
   game.physics.arcade.enable(player);
   player.body.gravity.y = 1200;
   player.body.collideWorldBounds = true;
@@ -51,19 +52,18 @@ function create() {
 }
 
 function update() {
+
+    player.body.velocity.x = 150;
   game.physics.arcade.collide(player, platforms);
-  game.physics.arcade.collide(player, coin);
-
-
-  player.body.velocity.x = 150;
+  game.physics.arcade.overlap(player, coins, collectCoin, null, this);
+  scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000'});
+  scoreText.fixedToCamera = true;
 
   if (cursors.up.isDown)
   {
     player.body.velocity.y = -300;
   }
-  game.physics.arcade.overlap(player, coins, collectCoin, null, this);
-  scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000'});
-  scoreText.fixedToCamera = true;
+
 }
 
 function collectCoin (player, coins) {
