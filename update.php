@@ -28,13 +28,12 @@ $req->execute(array(
 ));
 $_SESSION['pseudo'] = $newPseudo;
 echo "Votre nouveau Pseudo! ".$newPseudo;
-
-// if (isset($_POST['delete'])) {
-//   $req = $bdd->prepare('DELETE marioUser SET pseudoUser = :pseudo WHERE pseudoUser = :oldpseudo');
-//   $req->execute(array(
-//     'pseudo' => $newPseudo,
-//     'oldpseudo' => $oldpseudo
-//   ));
-// }
+}
+if (isset($_POST['delete'])) {
+  $req = $bdd->prepare('DELETE FROM marioUser WHERE pseudoUser = :pseudo');
+  $req->execute(array(
+    'pseudo' => $_SESSION['pseudo']
+  ));
+header('Location: index.php');
 }
  ?>
