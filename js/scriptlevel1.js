@@ -115,6 +115,7 @@ var mainState = {
     game.load.image('coin', 'image/diamond.png');
     game.load.image('tuyau1', 'image/tube1.png');
     game.load.image('tuyau2', 'image/tube2.png');
+    game.load.image('buttonquit', 'image/buttonquit.png');
   },
   create: function() {
     game.stage.backgroundColor = '#71c5cf';
@@ -144,12 +145,15 @@ var mainState = {
     coin2.onOutOfBoundskill = true;
     scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000'});
     highscoreText = game.add.text(200, 16, 'Highscore:'+ highscore, { fontSize: '32px', fill: '#000'});
-    pause = game.add.text(800, 16, 'Pause', { fontSize: '32px', fill: '#000'});
+    Quitgame = game.add.button(630, 330, 'buttonquit',function(){window.location.href = ("http://localhost/travaux/JeuProjetMiFormation/Monde.php")});
+    Quitgame.width = 50;
+    Quitgame.height = 50;
+    pause = game.add.text(500, 16, 'Pause', { fontSize: '32px', fill: '#000'});
     pause.inputEnabled = true;
     pause.events.onInputUp.add(function () {
       // When the paus button is pressed, we pause the game
       game.paused = true;
-      unpause = game.add.text(500, 300, 'Reprendre', { font: '50px Arial', fill: '#000' });
+      unpause = game.add.text(250, 150, 'Reprendre', { font: '50px Arial', fill: '#000' });
 
     });
 
@@ -183,7 +187,7 @@ var mainState = {
     // It contains the game's logic
     game.physics.arcade.overlap(player, coins, this.collectCoin, null,this);
     if (score > highscore) {
-      sessionStorage.setItem("highscore",score);
+      localStorage.setItem("highscore",score);
     }
     if (player.body.y < 0 || player.body.y > 650)
     this.restartGame();
@@ -214,7 +218,8 @@ var game = new Phaser.Game(700, 400);
 var score = 0;
 var scoreText;
 var pause;
-var highscore = sessionStorage.getItem("highscore");
+var Quitgame;
+var highscore = localStorage.getItem("highscore");
 // Add the 'mainState' and call it 'main'
 game.state.add('main', mainState);
 
